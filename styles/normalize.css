@@ -262,8 +262,8 @@ progress {
 Correct the cursor style of increment and decrement buttons in Safari.
 */
 
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
+::-webkit-inner-spin-btn,
+::-webkit-outer-spin-btn {
   height: auto;
 }
 
@@ -290,7 +290,7 @@ Remove the inner padding in Chrome and Safari on macOS.
 2. Change font properties to `inherit` in Safari.
 */
 
-::-webkit-file-upload-button {
+::-webkit-file-upload-btn {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
