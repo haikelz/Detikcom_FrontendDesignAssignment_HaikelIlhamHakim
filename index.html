@@ -8,27 +8,60 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
-  <header class="position-fixed header d-flex px-4 justify-content-center align-items-center w-100">
-    <nav class="shadow-sm d-inline-flex container justify-content-between align-items-center nav">
-      <div>
-        <img src="static/images/logo.png" alt="logo">
+  <header class="position-fixed header d-flex px-4 justify-content-center flex-column align-items-center w-100">
+    <nav id="nav" class="d-inline-flex container justify-content-between align-items-center shadow-sm nav">
+      <div class="d-flex justify-content-between w-100 align-items-center">
+        <div>
+          <img src="static/images/logo.png" alt="logo">
+        </div>
+        <ul class="nav-menu">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#about">Tentang Acara</a>
+          </li>
+          <li>
+            <a href="#gallery">Galeri</a>
+          </li>
+          <li>
+            <a href="#articles">Berita</a>
+          </li>
+          <li>
+            <a href="https://event.detik.com/" target="_blank" rel="noopener noreferrer">
+              <button type="button" aria-label="registrasi" class="rounded-pill nav-btn">Registrasi</button>
+            </a>
+          </li>
+        </ul>
+        <button type="button" aria-label="open close nav" class="rounded-full bg-white shadow-sm open-category-btn"
+          onclick="openCloseNav()">
+          <img id="open-close-nav-icon" src="static/images/category.svg" alt="open close nav icon">
+        </button>
       </div>
-      <ul class="nav-menu">
-        <a href="">Home</a>
-        <a href="">Tentang Acara</a>
-        <a href="">Galeri</a>
-        <a href="">Berita</a>
-        <a href="https://event.detik.com/" target="_blank" rel="noopener noreferrer">
-          <button type="button" aria-label="registrasi" class="rounded-pill nav-btn">Registrasi</button>
-        </a>
-      </ul>
-      <button type="button" aria-label="open category" class="rounded-full bg-white shadow-sm open-category-btn">
-        <img src="static/images/category.png" alt="category">
-      </button>
     </nav>
+    <ul id="nav-menu-mobile" class="container nav-menu-mobile">
+      <li class="nav-menu-mobile-list">
+        <a href="#">Home</a>
+      </li>
+      <li class="nav-menu-mobile-list">
+        <a href="#about">Tentang Acara</a>
+      </li>
+      <li class="nav-menu-mobile-list">
+        <a href="#gallery">Galeri</a>
+      </li>
+      <li class="nav-menu-mobile-list">
+        <a href="#articles">Berita</a>
+      </li>
+      <li class="nav-menu-mobile-list">
+        <a href="https://event.detik.com/" target="_blank" rel="noopener noreferrer">
+          <button type="button" aria-label="registrasi" class="rounded-pill w-100 nav-btn">Registrasi</button>
+        </a>
+      </li>
+    </ul>
   </header>
   <main class="w-100">
     <section class="w-100">
@@ -36,14 +69,16 @@
       <div class="banner">
         <div class="banner-logo d-flex flex-column container">
           <img src="static/images/logo-event.png" alt="logo event">
-          <button type="button" aria-label="tentang acara" class="banner-btn mt-5">TENTANG ACARA</button>
+          <a href="#about">
+            <button type="button" aria-label="tentang acara" class="banner-btn mt-5">TENTANG ACARA</button>
+          </a>
         </div>
       </div>
       <!-- About -->
-      <div class="about d-flex w-100 flex-column justify-content-center align-items-center">
+      <div id="about" class="about d-flex w-100 flex-column justify-content-center align-items-center">
         <div class="about-content container">
           <div class="about-card">
-            <img src="static/images/map.png" class="w-100 about-card-map-image" alt="map" loading="lazy">
+            <img src="static/images/map.png" class="about-card-map-image" alt="map" loading="lazy">
             <h4 class="about-card-title mt-3">10K FUN RUN</h4>
             <p class="text-white mt-3 about-card-description">Dimulai pukul 6 pagi, nikmati pemandangan kota di pagi
               hari dimulai
@@ -73,7 +108,8 @@
                 alt="special performance" loading="lazy">
               <div class="about-special-performance-description">
                 <h4 class="about-card-title">SPECIAL PERFORMANCE</h4>
-                <p class="text-white mt-2 about-card-description">Saksikan penampilan dari RAN, Ayu Ting Ting, Diskoria,
+                <p class="text-white mt-2 about-card-description">Saksikan penampilan dari RAN, Ayu Ting Ting,
+                  Diskoria,
                   serta hiburan lainnya!</p>
               </div>
             </div>
@@ -84,9 +120,10 @@
         </a>
       </div>
       <!-- Sponsors -->
-      <div class="d-flex flex-column justify-content-center w-100 overflow-hidden align-items-center sponsors">
+      <div id="sponsors"
+        class="d-flex flex-column justify-content-center w-100 overflow-hidden align-items-center sponsors">
         <h2 class="sponsor-title">DIDUKUNG OLEH</h2>
-        <div class="d-flex justify-content-center gap-4 w-100 sponsors-list align-items-center">
+        <div class="d-flex justify-content-center marquee gap-4 w-100 sponsors-list align-items-center">
           <div class="bg-white sponsor d-flex justify-content-center align-items-center"><img
               src="static/images/jwc-ventures.png" alt="jwc ventures" loading="lazy" class="sponsor-image"></div>
           <div class="bg-white sponsor d-flex justify-content-center align-items-center"><img
@@ -99,37 +136,61 @@
               src="static/images/sginnovate.png" alt="sginnovate" loading="lazy"></div>
           <div class="bg-white sponsor d-flex justify-content-center align-items-center"><img
               src="static/images/wavemaker.png" alt="wavemaker" loading="lazy" class="sponsor-image"></div>
-          <div class="bg-white sponsor d-flex justify-content-center align-items-center"><img
+          <div class="bg-white marquee-content sponsor d-flex justify-content-center align-items-center"><img
               src="static/images/gfc.png" alt="gfc" loading="lazy"></div>
-          <div class="bg-white sponsor d-flex justify-content-center align-items-center"><img
+          <div class="bg-white marquee-content sponsor d-flex justify-content-center align-items-center"><img
               src="static/images/gate-ventures.png" alt="gate ventures" loading="lazy" class="sponsor-image"></div>
         </div>
       </div>
+
       <!-- Galeri Sudirman -->
-      <div class="gallery container w-100 d-flex justify-content-center align-items-center">
+      <div id="gallery" class="gallery container w-100 d-flex justify-content-center align-items-center">
         <div class="gallery-sudirman w-100">
           <h2 class="gallery-sudirman-title">GALERI SUDIRMAN RUN 2022</h2>
-          <div class="w-100 justify-content-between gallery-sudirman-images-list mt-4">
-            <div class="gallery-sudirman-main-image">
-              <img src="static/images/galeri-sudirman-main-slider.png" alt="galeri sudirman" loading="lazy">
+          <div class="w-100 justify-content-between swiper gallery-sudirman-images-list mt-4">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="static/images/galeri-sudirman-1.png" alt="galeri sudirman" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="static/images/galeri-sudirman-2.png" alt="galeri sudirman" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="static/images/galeri-sudirman-3.png" alt="galeri sudirman" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="static/images/galeri-sudirman-4.png" alt="galeri sudirman" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="static/images/galeri-sudirman-5.png" alt="galeri sudirman" loading="lazy">
+              </div>
             </div>
-            <div class="gallery-sudirman-image">
-              <img src="static/images/galeri-sudirman-2.png" alt="galeri sudirman" loading="lazy">
-            </div>
-            <div class="gallery-sudirman-image">
-              <img src="static/images/galeri-sudirman-3.png" alt="galeri sudirman" loading="lazy">
-            </div>
-            <div class="gallery-sudirman-image">
-              <img src="static/images/galeri-sudirman-4.png" alt="galeri sudirman" loading="lazy">
-            </div>
-            <div class="gallery-sudirman-image">
-              <img src="static/images/galeri-sudirman-5.png" alt="galeri sudirman" loading="lazy">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div thumbsSlider="" class="swiper swiper-slide-thumbs-list">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="static/images/galeri-sudirman-1.png" alt="galeri sudirman" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="static/images/galeri-sudirman-2.png" alt="galeri sudirman" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="static/images/galeri-sudirman-3.png" alt="galeri sudirman" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="static/images/galeri-sudirman-4.png" alt="galeri sudirman" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="static/images/galeri-sudirman-5.png" alt="galeri sudirman" loading="lazy">
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Artikel Terkait-->
-      <div class="articles w-100">
+      <div id="articles" class="articles w-100">
         <div class="container d-flex justify-content-center align-items-center flex-column">
           <h2>ARTIKEL TERKAIT</h2>
           <div class="d-flex articles-menu rounded-pill">
@@ -142,7 +203,7 @@
               <div class="article-image-wrapper">
                 <img class="article-image" src="static/images/article-1.png" alt="article 1" loading="lazy">
               </div>
-              <div class="mt-4">
+              <div class="article-card-content">
                 <h4 class="fw-bold article-title">Sukses Finish Marathon di Jakarta, Osha Penyandang Autisme Beberkan
                   Prosesnya</h4>
                 <p class="mt-3">Sabtu, 25 Nov 2023 20:00 WIB</p>
@@ -153,7 +214,8 @@
                 <img class="article-image" src="static/images/article-2.png" alt="article 2" loading="lazy">
               </div>
               <div class="mt-4">
-                <h4 class="fw-bold article-title">Edukasi Lingkungan Hidup Bonus Sehat di 'Misi Lestari 2023: See Nature
+                <h4 class="fw-bold article-title">Edukasi Lingkungan Hidup Bonus Sehat di 'Misi Lestari 2023: See
+                  Nature
                   Prosesnya</h4>
                 <p class="mt-3">Sabtu, 25 Nov 2023 20:00 WIB</p>
               </div>
@@ -172,7 +234,8 @@
                 <img class="article-image" src="static/images/article-4.png" alt="article 4" loading="lazy">
               </div>
               <div class="mt-4">
-                <h4 class="fw-bold article-title">Kelar Lari di CT Arsa Charity Fun Run, 'Recharge' Energi Nonton Maliq
+                <h4 class="fw-bold article-title">Kelar Lari di CT Arsa Charity Fun Run, 'Recharge' Energi Nonton
+                  Maliq
                   & D'essentials</h4>
                 <p class="mt-3">Sabtu, 25 Nov 2023 20:00 WIB</p>
               </div>
@@ -198,14 +261,15 @@
           </div>
           <a href="https://www.detik.com/search/searchall?query=fun+run&siteid=2" target="_blank"
             rel="noopener noreferrer">
-            <button type="button" aria-label="lihat lebih banyak" class="articles-btn mt-5">LIHAT LEBIH BANYAK</button>
+            <button type="button" aria-label="lihat lebih banyak" class="articles-btn mt-5">LIHAT LEBIH
+              BANYAK</button>
           </a>
         </div>
       </div>
       <!-- Footer -->
       <footer class="footer w-100 text-white">
+        <img src="static/images/logo-footer.png" alt="logo footer" loading="lazy">
         <div class="w-100">
-          <img src="static/images/logo-footer.png" alt="logo footer" loading="lazy">
           <div class="d-flex justify-content-between footer-content w-100 border-b-2">
             <div class="footer-description mt-4">
               <p>Event olahraga lari sejauh 10 kilometer yang diselenggarakan oleh Detikhealth secara gratis untuk
@@ -225,7 +289,7 @@
               </ul>
             </div>
           </div>
-          <span>Copyright @ 2023 detikcom. All right reserved</span>
+          <p class="footer-copyright">Copyright @ 2023 detikcom. All right reserved</p>
         </div>
       </footer>
     </section>
@@ -233,6 +297,35 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    let swiper = new Swiper(".swiper-slide-thumbs-list", {
+      loop: true,
+      autoplay: {
+        delay: 2500, disableOnInteraction: false,
+      },
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+
+    let swiper2 = new Swiper(".gallery-sudirman-images-list", {
+      loop: true,
+      spaceBetween: 10,
+      autoplay: {
+        delay: 2500, disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    })
+  </script>
 </body>
 
 </html>
