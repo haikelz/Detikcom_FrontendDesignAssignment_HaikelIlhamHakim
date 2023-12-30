@@ -18,8 +18,12 @@ function openCloseNav() {
 }
 
 function openTab() {
-  const withPhotosArticle = document.getElementById("with-photos-article");
-  const withVideosArticle = document.getElementById("with-videos-article");
+  const photosArticleClass = document.getElementsByClassName(
+    "with-photos-article"
+  );
+  const videosArticleClass = document.getElementsByClassName(
+    "with-videos-article"
+  );
 
   const tabPhoto = document.getElementById("tab-photo");
   const tabArticle = document.getElementById("tab-article");
@@ -28,8 +32,10 @@ function openTab() {
   tabArticle.addEventListener("click", (e) => {
     e.preventDefault();
 
-    withPhotosArticle.style.display = "none";
-    withVideosArticle.style.display = "none";
+    for (let i = 0; i < photosArticleClass.length; i++) {
+      photosArticleClass[i].classList.remove("show-photos-article");
+      videosArticleClass[i].classList.remove("show-videos-article");
+    }
 
     tabArticle.classList.add("tab-button-active");
     tabVideo.classList.remove("tab-button-active");
@@ -39,8 +45,10 @@ function openTab() {
   tabPhoto.addEventListener("click", (e) => {
     e.preventDefault();
 
-    withPhotosArticle.style.display = "flex";
-    withVideosArticle.style.display = "none";
+    for (let i = 0; i < photosArticleClass.length; i++) {
+      photosArticleClass[i].classList.add("show-photos-article");
+      videosArticleClass[i].classList.remove("show-videos-article");
+    }
 
     tabPhoto.classList.add("tab-button-active");
     tabVideo.classList.remove("tab-button-active");
@@ -50,8 +58,10 @@ function openTab() {
   tabVideo.addEventListener("click", (e) => {
     e.preventDefault();
 
-    withVideosArticle.style.display = "flex";
-    withPhotosArticle.style.display = "none";
+    for (let i = 0; i < videosArticleClass.length; i++) {
+      photosArticleClass[i].classList.remove("show-photos-article");
+      videosArticleClass[i].classList.add("show-videos-article");
+    }
 
     tabPhoto.classList.remove("tab-button-active");
     tabVideo.classList.add("tab-button-active");

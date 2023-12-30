@@ -631,11 +631,8 @@ h2 {
   }
 }
 
-.marquee {
-  overflow: hidden;
-}
-
 .sponsor {
+  white-space: nowrap;
   -moz-animation: marquee 2s linear infinite;
   -webkit-animation: marquee 2s linear infinite;
   animation: marquee 2s linear infinite;
@@ -672,4 +669,12 @@ h2 {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
+}
+
+.show-photos-article {
+  display: flex !important;
+}
+
+.show-videos-article {
+  display: flex !important;
 }
