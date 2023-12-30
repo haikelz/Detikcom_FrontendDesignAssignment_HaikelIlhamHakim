@@ -2,19 +2,6 @@ const navMenuMobile = document.getElementById("nav-menu-mobile");
 const nav = document.getElementById("nav");
 const openCloseNavIcon = document.getElementById("open-close-nav-icon");
 const openCategory = document.querySelector(".open-category-btn");
-const parentSelector = document.querySelector(".marquee");
-
-window.addEventListener("load", () => {
-  const clone = parentSelector.innerHTML;
-
-  let i = 0;
-
-  parentSelector.insertAdjacentHTML("beforeend", clone);
-
-  setInterval(() => {
-    i += 2;
-  }, 0);
-});
 
 function openCloseNav() {
   if (nav.className.split(" ")[nav.className.split(" ").length - 1] === "nav") {
@@ -44,6 +31,7 @@ function openTab() {
     withPhotosArticle.style.display = "none";
     withVideosArticle.style.display = "none";
 
+    tabArticle.classList.add("tab-button-active");
     tabVideo.classList.remove("tab-button-active");
     tabPhoto.classList.remove("tab-button-active");
   });
@@ -54,8 +42,9 @@ function openTab() {
     withPhotosArticle.style.display = "flex";
     withVideosArticle.style.display = "none";
 
-    tabVideo.classList.remove("tab-button-active");
     tabPhoto.classList.add("tab-button-active");
+    tabVideo.classList.remove("tab-button-active");
+    tabArticle.classList.remove("tab-button-active");
   });
 
   tabVideo.addEventListener("click", (e) => {
@@ -66,5 +55,6 @@ function openTab() {
 
     tabPhoto.classList.remove("tab-button-active");
     tabVideo.classList.add("tab-button-active");
+    tabArticle.classList.remove("tab-button-active");
   });
 }

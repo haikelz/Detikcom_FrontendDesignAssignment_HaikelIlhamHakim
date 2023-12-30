@@ -636,9 +636,9 @@ h2 {
 }
 
 .sponsor {
-  -moz-animation: marquee 10s linear infinite;
-  -webkit-animation: marquee 10s linear infinite;
-  animation: marquee 10s linear infinite;
+  -moz-animation: marquee 2s linear infinite;
+  -webkit-animation: marquee 2s linear infinite;
+  animation: marquee 2s linear infinite;
 }
 
 @-moz-keyframes marquee {
@@ -654,6 +654,7 @@ h2 {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     transform: translateX(-100%);
   }
@@ -665,6 +666,7 @@ h2 {
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
   }
+
   100% {
     -moz-transform: translateX(-100%);
     -webkit-transform: translateX(-100%);

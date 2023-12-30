@@ -30,3 +30,33 @@
   border-radius: 1rem;
   cursor: pointer;
 }
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-next {
+  top: 40% !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 1rem;
+  background-image: url("../static/images/arrow-right.svg") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-prev {
+  top: 40% !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 1rem;
+  background-image: url("../static/images/arrow-left.svg") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
