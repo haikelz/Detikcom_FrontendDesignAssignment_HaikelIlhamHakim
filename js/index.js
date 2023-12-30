@@ -6,7 +6,6 @@ const parentSelector = document.querySelector(".marquee");
 
 window.addEventListener("load", () => {
   const clone = parentSelector.innerHTML;
-  const firstElement = parentSelector.children[0];
 
   let i = 0;
 
@@ -29,4 +28,43 @@ function openCloseNav() {
     nav.classList.add("nav");
     openCloseNavIcon.src = "static/images/category.svg";
   }
+}
+
+function openTab() {
+  const withPhotosArticle = document.getElementById("with-photos-article");
+  const withVideosArticle = document.getElementById("with-videos-article");
+
+  const tabPhoto = document.getElementById("tab-photo");
+  const tabArticle = document.getElementById("tab-article");
+  const tabVideo = document.getElementById("tab-video");
+
+  tabArticle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    withPhotosArticle.style.display = "none";
+    withVideosArticle.style.display = "none";
+
+    tabVideo.classList.remove("tab-button-active");
+    tabPhoto.classList.remove("tab-button-active");
+  });
+
+  tabPhoto.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    withPhotosArticle.style.display = "flex";
+    withVideosArticle.style.display = "none";
+
+    tabVideo.classList.remove("tab-button-active");
+    tabPhoto.classList.add("tab-button-active");
+  });
+
+  tabVideo.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    withVideosArticle.style.display = "flex";
+    withPhotosArticle.style.display = "none";
+
+    tabPhoto.classList.remove("tab-button-active");
+    tabVideo.classList.add("tab-button-active");
+  });
 }
